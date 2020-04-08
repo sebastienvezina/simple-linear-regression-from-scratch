@@ -15,10 +15,9 @@ class SimpleLinearRegressionClassifier:
         y_mean = np.mean(y_train)
 
         # compute the slope beta1
-        x_std = np.std(x_train)
-        y_std = np.std(y_train)
-        x_y_correlation = np.corrcoef(x_train, y_train)[0, 1]
-        self.beta1 = x_y_correlation * y_std / x_std
+        # formula Σ((xi - xmean) * (yi - ymean)) / Σ ((xi - xmean)**2)
+        
+        self.beta1 = np.sum((x_train - x_mean) * (y_train - y_mean)) / np.sum((x_train - x_mean)**2)
 
         # compute y intercept beta0 from y = beta0 + beta1 * x
         self.beta0 = y_mean - self.beta1 * x_mean
