@@ -16,7 +16,6 @@ class SimpleLinearRegressionClassifier:
 
         # compute the slope beta1
         # formula Σ((xi - xmean) * (yi - ymean)) / Σ ((xi - xmean)**2)
-        
         self.beta1 = np.sum((x_train - x_mean) * (y_train - y_mean)) / np.sum((x_train - x_mean)**2)
 
         # compute y intercept beta0 from y = beta0 + beta1 * x
